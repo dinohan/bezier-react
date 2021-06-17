@@ -7,6 +7,7 @@ import {
   styled,
   TransitionDuration,
 } from '../../foundation'
+import { WithInterpolation } from '../../types/InjectedInterpolation'
 import { SemanticNames } from '../../foundation/Colors/Theme'
 import { Icon } from '../Icon'
 import {
@@ -120,10 +121,12 @@ export const LeftContentWrapper = styled.div`
   margin-right: 8px;
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<WithInterpolation>`
   display: grid;
   grid-template-columns: fit-content(100%) minmax(0, 1fr);
   width: 100%;
+
+  ${({ interpolation }) => interpolation}
 `
 
 export const Wrapper = styled.div<StyledWrapperProps>`

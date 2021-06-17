@@ -64,6 +64,7 @@ function ListItem({
   href = '',
   hide = false,
   rightContent = null,
+  interpolation,
   /* OptionItem Props */
   optionKey,
   /* Activable Element Props */
@@ -209,7 +210,7 @@ forwardedRef: React.Ref<ListItemRef>,
 
   const ContentComponent = useMemo(() => (
     <>
-      <ContentWrapper>
+      <ContentWrapper interpolation={interpolation}>
         { leftComponent }
         { titleComponent }
         { description && descriptionComponent }
@@ -217,6 +218,7 @@ forwardedRef: React.Ref<ListItemRef>,
       { rightContent && rightComponent }
     </>
   ), [
+    interpolation,
     leftComponent,
     titleComponent,
     description,
